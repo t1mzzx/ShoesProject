@@ -16,7 +16,7 @@ namespace ShoesProject
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run();
+            Application.Run(new FormLogin());
         }
     }
 }

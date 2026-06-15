@@ -66,6 +66,7 @@
             this.btnGuest.TabIndex = 5;
             this.btnGuest.Text = "Войти как гость";
             this.btnGuest.UseVisualStyleBackColor = false;
+            this.btnGuest.Click += new System.EventHandler(this.btnGuest_Click);
             // 
             // btnLogin
             // 
@@ -78,7 +79,7 @@
             this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Войти";
             this.btnLogin.UseVisualStyleBackColor = false;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            this.btnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
             // 
             // txtPassword
             // 
