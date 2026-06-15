@@ -7,11 +7,11 @@ using System.Collections.Generic;
 
 namespace ShoesProject
 {
-    public partial class Users
+    public partial class User
     {
-        public Users()
+        public User()
         {
-            Orders = new HashSet<Orders>();
+            Order = new HashSet<Order>();
         }
 
         public int Id { get; set; }
@@ -22,7 +22,7 @@ namespace ShoesProject
         public string Login { get; set; }
         public string Pass { get; set; }
 
-        public virtual Roles IdRoleNavigation { get; set; }
-        public virtual ICollection<Orders> Orders { get; set; }
+        public virtual Role IdRoleNavigation { get; set; }
+        public virtual ICollection<Order> Order { get; set; }
     }
 }

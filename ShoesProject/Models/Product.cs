@@ -7,11 +7,11 @@ using System.Collections.Generic;
 
 namespace ShoesProject
 {
-    public partial class Products
+    public partial class Product
     {
-        public Products()
+        public Product()
         {
-            ProductsOrders = new HashSet<ProductsOrders>();
+            ProductsOrder = new HashSet<ProductsOrder>();
         }
 
         public int Id { get; set; }
@@ -27,11 +27,11 @@ namespace ShoesProject
         public string Description { get; set; }
         public string PhotoUrl { get; set; }
 
-        public virtual Categories IdCategoryNavigation { get; set; }
-        public virtual Manufacturers IdManufacturerNavigation { get; set; }
-        public virtual Measures IdMeasureNavigation { get; set; }
-        public virtual Suppliers IdSupplierNavigation { get; set; }
-        public virtual ProductTypes IdTypeNavigation { get; set; }
-        public virtual ICollection<ProductsOrders> ProductsOrders { get; set; }
+        public virtual Categorie IdCategoryNavigation { get; set; }
+        public virtual Manufacturer IdManufacturerNavigation { get; set; }
+        public virtual Measure IdMeasureNavigation { get; set; }
+        public virtual Supplier IdSupplierNavigation { get; set; }
+        public virtual ProductType IdTypeNavigation { get; set; }
+        public virtual ICollection<ProductsOrder> ProductsOrder { get; set; }
     }
 }

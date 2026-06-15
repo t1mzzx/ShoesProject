@@ -7,16 +7,16 @@ using System.Collections.Generic;
 
 namespace ShoesProject
 {
-    public partial class Manufacturers
+    public partial class Supplier
     {
-        public Manufacturers()
+        public Supplier()
         {
-            Products = new HashSet<Products>();
+            Product = new HashSet<Product>();
         }
 
         public int Id { get; set; }
-        public string ManufacturerName { get; set; }
+        public string SupplierName { get; set; }
 
-        public virtual ICollection<Products> Products { get; set; }
+        public virtual ICollection<Product> Product { get; set; }
     }
 }

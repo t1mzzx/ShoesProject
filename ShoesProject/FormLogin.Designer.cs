@@ -29,28 +29,17 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
-            this.pblogo = new System.Windows.Forms.PictureBox();
             this.pnMain = new System.Windows.Forms.Panel();
-            this.lbLogin = new System.Windows.Forms.Label();
-            this.txtLogin = new System.Windows.Forms.TextBox();
-            this.lbPassword = new System.Windows.Forms.Label();
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.btnLogin = new System.Windows.Forms.Button();
             this.btnGuest = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pblogo)).BeginInit();
+            this.btnLogin = new System.Windows.Forms.Button();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.lbPassword = new System.Windows.Forms.Label();
+            this.txtLogin = new System.Windows.Forms.TextBox();
+            this.lbLogin = new System.Windows.Forms.Label();
+            this.pblogo = new System.Windows.Forms.PictureBox();
             this.pnMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pblogo)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pblogo
-            // 
-            this.pblogo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pblogo.Image = ((System.Drawing.Image)(resources.GetObject("pblogo.Image")));
-            this.pblogo.Location = new System.Drawing.Point(139, 12);
-            this.pblogo.Name = "pblogo";
-            this.pblogo.Size = new System.Drawing.Size(100, 100);
-            this.pblogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pblogo.TabIndex = 0;
-            this.pblogo.TabStop = false;
             // 
             // pnMain
             // 
@@ -61,55 +50,10 @@
             this.pnMain.Controls.Add(this.lbPassword);
             this.pnMain.Controls.Add(this.txtLogin);
             this.pnMain.Controls.Add(this.lbLogin);
-            this.pnMain.Location = new System.Drawing.Point(34, 127);
+            this.pnMain.Location = new System.Drawing.Point(32, 127);
             this.pnMain.Name = "pnMain";
             this.pnMain.Size = new System.Drawing.Size(320, 222);
-            this.pnMain.TabIndex = 1;
-            // 
-            // lbLogin
-            // 
-            this.lbLogin.AutoSize = true;
-            this.lbLogin.Location = new System.Drawing.Point(141, 17);
-            this.lbLogin.Name = "lbLogin";
-            this.lbLogin.Size = new System.Drawing.Size(52, 19);
-            this.lbLogin.TabIndex = 0;
-            this.lbLogin.Text = "Логин";
-            // 
-            // txtLogin
-            // 
-            this.txtLogin.Location = new System.Drawing.Point(35, 42);
-            this.txtLogin.Name = "txtLogin";
-            this.txtLogin.Size = new System.Drawing.Size(250, 26);
-            this.txtLogin.TabIndex = 1;
-            // 
-            // lbPassword
-            // 
-            this.lbPassword.AutoSize = true;
-            this.lbPassword.Location = new System.Drawing.Point(138, 74);
-            this.lbPassword.Name = "lbPassword";
-            this.lbPassword.Size = new System.Drawing.Size(58, 19);
-            this.lbPassword.TabIndex = 2;
-            this.lbPassword.Text = "Пароль";
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.Location = new System.Drawing.Point(35, 99);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(250, 26);
-            this.txtPassword.TabIndex = 3;
-            this.txtPassword.UseSystemPasswordChar = true;
-            // 
-            // btnLogin
-            // 
-            this.btnLogin.BackColor = System.Drawing.Color.MediumSpringGreen;
-            this.btnLogin.FlatAppearance.BorderSize = 0;
-            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.Location = new System.Drawing.Point(92, 130);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(150, 30);
-            this.btnLogin.TabIndex = 4;
-            this.btnLogin.Text = "Войти";
-            this.btnLogin.UseVisualStyleBackColor = false;
+            this.pnMain.TabIndex = 3;
             // 
             // btnGuest
             // 
@@ -123,30 +67,81 @@
             this.btnGuest.Text = "Войти как гость";
             this.btnGuest.UseVisualStyleBackColor = false;
             // 
+            // btnLogin
+            // 
+            this.btnLogin.BackColor = System.Drawing.Color.MediumSpringGreen;
+            this.btnLogin.FlatAppearance.BorderSize = 0;
+            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogin.Location = new System.Drawing.Point(92, 130);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(150, 30);
+            this.btnLogin.TabIndex = 4;
+            this.btnLogin.Text = "Войти";
+            this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Location = new System.Drawing.Point(35, 99);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(250, 20);
+            this.txtPassword.TabIndex = 3;
+            this.txtPassword.UseSystemPasswordChar = true;
+            // 
+            // lbPassword
+            // 
+            this.lbPassword.AutoSize = true;
+            this.lbPassword.Location = new System.Drawing.Point(138, 74);
+            this.lbPassword.Name = "lbPassword";
+            this.lbPassword.Size = new System.Drawing.Size(45, 13);
+            this.lbPassword.TabIndex = 2;
+            this.lbPassword.Text = "Пароль";
+            // 
+            // txtLogin
+            // 
+            this.txtLogin.Location = new System.Drawing.Point(35, 42);
+            this.txtLogin.Name = "txtLogin";
+            this.txtLogin.Size = new System.Drawing.Size(250, 20);
+            this.txtLogin.TabIndex = 1;
+            // 
+            // lbLogin
+            // 
+            this.lbLogin.AutoSize = true;
+            this.lbLogin.Location = new System.Drawing.Point(141, 17);
+            this.lbLogin.Name = "lbLogin";
+            this.lbLogin.Size = new System.Drawing.Size(38, 13);
+            this.lbLogin.TabIndex = 0;
+            this.lbLogin.Text = "Логин";
+            // 
+            // pblogo
+            // 
+            this.pblogo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pblogo.Image = ((System.Drawing.Image)(resources.GetObject("pblogo.Image")));
+            this.pblogo.Location = new System.Drawing.Point(137, 12);
+            this.pblogo.Name = "pblogo";
+            this.pblogo.Size = new System.Drawing.Size(100, 100);
+            this.pblogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pblogo.TabIndex = 2;
+            this.pblogo.TabStop = false;
+            // 
             // FormLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(384, 361);
             this.Controls.Add(this.pnMain);
             this.Controls.Add(this.pblogo);
-            this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormLogin";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Вход в систему";
-            ((System.ComponentModel.ISupportInitialize)(this.pblogo)).EndInit();
+            this.Text = "FormLogin";
             this.pnMain.ResumeLayout(false);
             this.pnMain.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pblogo)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pblogo;
         private System.Windows.Forms.Panel pnMain;
         private System.Windows.Forms.Button btnGuest;
         private System.Windows.Forms.Button btnLogin;
@@ -154,5 +149,6 @@
         private System.Windows.Forms.Label lbPassword;
         private System.Windows.Forms.TextBox txtLogin;
         private System.Windows.Forms.Label lbLogin;
+        private System.Windows.Forms.PictureBox pblogo;
     }
 }

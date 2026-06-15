@@ -19,18 +19,18 @@ namespace ShoesProject
         {
         }
 
-        public virtual DbSet<Categories> Categories { get; set; }
-        public virtual DbSet<DeliveryPoints> DeliveryPoints { get; set; }
-        public virtual DbSet<Manufacturers> Manufacturers { get; set; }
-        public virtual DbSet<Measures> Measures { get; set; }
-        public virtual DbSet<Orders> Orders { get; set; }
-        public virtual DbSet<ProductTypes> ProductTypes { get; set; }
-        public virtual DbSet<Products> Products { get; set; }
-        public virtual DbSet<ProductsOrders> ProductsOrders { get; set; }
-        public virtual DbSet<Roles> Roles { get; set; }
-        public virtual DbSet<Statuses> Statuses { get; set; }
-        public virtual DbSet<Suppliers> Suppliers { get; set; }
-        public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<Categorie> Categorie { get; set; }
+        public virtual DbSet<DeliveryPoint> DeliveryPoint { get; set; }
+        public virtual DbSet<Manufacturer> Manufacturer { get; set; }
+        public virtual DbSet<Measure> Measure { get; set; }
+        public virtual DbSet<Order> Order { get; set; }
+        public virtual DbSet<Product> Product { get; set; }
+        public virtual DbSet<ProductType> ProductType { get; set; }
+        public virtual DbSet<ProductsOrder> ProductsOrder { get; set; }
+        public virtual DbSet<Role> Role { get; set; }
+        public virtual DbSet<Statuse> Statuse { get; set; }
+        public virtual DbSet<Supplier> Supplier { get; set; }
+        public virtual DbSet<User> User { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -43,55 +43,65 @@ namespace ShoesProject
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Categories>(entity =>
+            modelBuilder.Entity<Categorie>(entity =>
             {
-                entity.ToTable("categories");
+                entity.ToTable("categorie");
 
-                entity.Property(e => e.Id).HasColumnName("id");
+                entity.Property(e => e.Id)
+                    .HasColumnName("id")
+                    .HasDefaultValueSql("nextval('categories_id_seq'::regclass)");
 
                 entity.Property(e => e.CategoryName)
                     .IsRequired()
                     .HasColumnName("category_name");
             });
 
-            modelBuilder.Entity<DeliveryPoints>(entity =>
+            modelBuilder.Entity<DeliveryPoint>(entity =>
             {
-                entity.ToTable("delivery_points");
+                entity.ToTable("delivery_point");
 
-                entity.Property(e => e.Id).HasColumnName("id");
+                entity.Property(e => e.Id)
+                    .HasColumnName("id")
+                    .HasDefaultValueSql("nextval('delivery_points_id_seq'::regclass)");
 
                 entity.Property(e => e.DeliveryAddress)
                     .IsRequired()
                     .HasColumnName("delivery_address");
             });
 
-            modelBuilder.Entity<Manufacturers>(entity =>
+            modelBuilder.Entity<Manufacturer>(entity =>
             {
-                entity.ToTable("manufacturers");
+                entity.ToTable("manufacturer");
 
-                entity.Property(e => e.Id).HasColumnName("id");
+                entity.Property(e => e.Id)
+                    .HasColumnName("id")
+                    .HasDefaultValueSql("nextval('manufacturers_id_seq'::regclass)");
 
                 entity.Property(e => e.ManufacturerName)
                     .IsRequired()
                     .HasColumnName("manufacturer_name");
             });
 
-            modelBuilder.Entity<Measures>(entity =>
+            modelBuilder.Entity<Measure>(entity =>
             {
-                entity.ToTable("measures");
+                entity.ToTable("measure");
 
-                entity.Property(e => e.Id).HasColumnName("id");
+                entity.Property(e => e.Id)
+                    .HasColumnName("id")
+                    .HasDefaultValueSql("nextval('measures_id_seq'::regclass)");
 
                 entity.Property(e => e.MeasureName)
                     .IsRequired()
                     .HasColumnName("measure_name");
             });
 
-            modelBuilder.Entity<Orders>(entity =>
+            modelBuilder.Entity<Order>(entity =>
             {
-                entity.ToTable("orders");
+                entity.ToTable("order");
 
-                entity.Property(e => e.Id).HasColumnName("id");
+                entity.Property(e => e.Id)
+                    .HasColumnName("id")
+                    .HasDefaultValueSql("nextval('orders_id_seq'::regclass)");
 
                 entity.Property(e => e.Code).HasColumnName("code");
 
@@ -110,37 +120,28 @@ namespace ShoesProject
                     .HasColumnType("date");
 
                 entity.HasOne(d => d.IdDeliveryPointNavigation)
-                    .WithMany(p => p.Orders)
+                    .WithMany(p => p.Order)
                     .HasForeignKey(d => d.IdDeliveryPoint)
                     .HasConstraintName("orders_id_delivery_point_fkey");
 
                 entity.HasOne(d => d.IdStatusesNavigation)
-                    .WithMany(p => p.Orders)
+                    .WithMany(p => p.Order)
                     .HasForeignKey(d => d.IdStatuses)
                     .HasConstraintName("orders_id_statuses_fkey");
 
                 entity.HasOne(d => d.IdUserNavigation)
-                    .WithMany(p => p.Orders)
+                    .WithMany(p => p.Order)
                     .HasForeignKey(d => d.IdUser)
                     .HasConstraintName("orders_id_user_fkey");
             });
 
-            modelBuilder.Entity<ProductTypes>(entity =>
+            modelBuilder.Entity<Product>(entity =>
             {
-                entity.ToTable("product_types");
+                entity.ToTable("product");
 
-                entity.Property(e => e.Id).HasColumnName("id");
-
-                entity.Property(e => e.ProdType)
-                    .IsRequired()
-                    .HasColumnName("prod_type");
-            });
-
-            modelBuilder.Entity<Products>(entity =>
-            {
-                entity.ToTable("products");
-
-                entity.Property(e => e.Id).HasColumnName("id");
+                entity.Property(e => e.Id)
+                    .HasColumnName("id")
+                    .HasDefaultValueSql("nextval('products_id_seq'::regclass)");
 
                 entity.Property(e => e.Art)
                     .IsRequired()
@@ -171,36 +172,51 @@ namespace ShoesProject
                     .HasColumnType("money");
 
                 entity.HasOne(d => d.IdCategoryNavigation)
-                    .WithMany(p => p.Products)
+                    .WithMany(p => p.Product)
                     .HasForeignKey(d => d.IdCategory)
                     .HasConstraintName("products_id_category_fkey");
 
                 entity.HasOne(d => d.IdManufacturerNavigation)
-                    .WithMany(p => p.Products)
+                    .WithMany(p => p.Product)
                     .HasForeignKey(d => d.IdManufacturer)
                     .HasConstraintName("products_id_manufacturer_fkey");
 
                 entity.HasOne(d => d.IdMeasureNavigation)
-                    .WithMany(p => p.Products)
+                    .WithMany(p => p.Product)
                     .HasForeignKey(d => d.IdMeasure)
                     .HasConstraintName("products_id_measure_fkey");
 
                 entity.HasOne(d => d.IdSupplierNavigation)
-                    .WithMany(p => p.Products)
+                    .WithMany(p => p.Product)
                     .HasForeignKey(d => d.IdSupplier)
                     .HasConstraintName("products_id_supplier_fkey");
 
                 entity.HasOne(d => d.IdTypeNavigation)
-                    .WithMany(p => p.Products)
+                    .WithMany(p => p.Product)
                     .HasForeignKey(d => d.IdType)
                     .HasConstraintName("products_id_type_fkey");
             });
 
-            modelBuilder.Entity<ProductsOrders>(entity =>
+            modelBuilder.Entity<ProductType>(entity =>
             {
-                entity.ToTable("products_orders");
+                entity.ToTable("product_type");
 
-                entity.Property(e => e.Id).HasColumnName("id");
+                entity.Property(e => e.Id)
+                    .HasColumnName("id")
+                    .HasDefaultValueSql("nextval('product_types_id_seq'::regclass)");
+
+                entity.Property(e => e.ProdType)
+                    .IsRequired()
+                    .HasColumnName("prod_type");
+            });
+
+            modelBuilder.Entity<ProductsOrder>(entity =>
+            {
+                entity.ToTable("products_order");
+
+                entity.Property(e => e.Id)
+                    .HasColumnName("id")
+                    .HasDefaultValueSql("nextval('products_orders_id_seq'::regclass)");
 
                 entity.Property(e => e.IdOrder).HasColumnName("id_order");
 
@@ -209,54 +225,62 @@ namespace ShoesProject
                 entity.Property(e => e.Quantity).HasColumnName("quantity");
 
                 entity.HasOne(d => d.IdOrderNavigation)
-                    .WithMany(p => p.ProductsOrders)
+                    .WithMany(p => p.ProductsOrder)
                     .HasForeignKey(d => d.IdOrder)
                     .HasConstraintName("products_orders_id_order_fkey");
 
                 entity.HasOne(d => d.IdProductNavigation)
-                    .WithMany(p => p.ProductsOrders)
+                    .WithMany(p => p.ProductsOrder)
                     .HasForeignKey(d => d.IdProduct)
                     .HasConstraintName("products_orders_id_product_fkey");
             });
 
-            modelBuilder.Entity<Roles>(entity =>
+            modelBuilder.Entity<Role>(entity =>
             {
-                entity.ToTable("roles");
+                entity.ToTable("role");
 
-                entity.Property(e => e.Id).HasColumnName("id");
+                entity.Property(e => e.Id)
+                    .HasColumnName("id")
+                    .HasDefaultValueSql("nextval('roles_id_seq'::regclass)");
 
                 entity.Property(e => e.RoleName)
                     .IsRequired()
                     .HasColumnName("role_name");
             });
 
-            modelBuilder.Entity<Statuses>(entity =>
+            modelBuilder.Entity<Statuse>(entity =>
             {
-                entity.ToTable("statuses");
+                entity.ToTable("statuse");
 
-                entity.Property(e => e.Id).HasColumnName("id");
+                entity.Property(e => e.Id)
+                    .HasColumnName("id")
+                    .HasDefaultValueSql("nextval('statuses_id_seq'::regclass)");
 
                 entity.Property(e => e.StatusName)
                     .IsRequired()
                     .HasColumnName("status_name");
             });
 
-            modelBuilder.Entity<Suppliers>(entity =>
+            modelBuilder.Entity<Supplier>(entity =>
             {
-                entity.ToTable("suppliers");
+                entity.ToTable("supplier");
 
-                entity.Property(e => e.Id).HasColumnName("id");
+                entity.Property(e => e.Id)
+                    .HasColumnName("id")
+                    .HasDefaultValueSql("nextval('suppliers_id_seq'::regclass)");
 
                 entity.Property(e => e.SupplierName)
                     .IsRequired()
                     .HasColumnName("supplier_name");
             });
 
-            modelBuilder.Entity<Users>(entity =>
+            modelBuilder.Entity<User>(entity =>
             {
-                entity.ToTable("users");
+                entity.ToTable("user");
 
-                entity.Property(e => e.Id).HasColumnName("id");
+                entity.Property(e => e.Id)
+                    .HasColumnName("id")
+                    .HasDefaultValueSql("nextval('users_id_seq'::regclass)");
 
                 entity.Property(e => e.FirstName)
                     .IsRequired()
@@ -281,7 +305,7 @@ namespace ShoesProject
                     .HasColumnName("pass");
 
                 entity.HasOne(d => d.IdRoleNavigation)
-                    .WithMany(p => p.Users)
+                    .WithMany(p => p.User)
                     .HasForeignKey(d => d.IdRole)
                     .HasConstraintName("users_id_role_fkey");
             });
