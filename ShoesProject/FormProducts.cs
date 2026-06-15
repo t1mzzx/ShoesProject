@@ -131,12 +131,17 @@ namespace ShoesProject
 
         private Image LoadProductImage(string photoUrl)
         {
+            // Если в БД указан путь, и этот файл реально существует на диске
             if (!string.IsNullOrEmpty(photoUrl) && System.IO.File.Exists(photoUrl))
             {
                 return Image.FromFile(photoUrl);
             }
-            return SystemIcons.Question.ToBitmap();
+
+            // ИСПРАВЛЕНИЕ: Возвращаем добавленную картинку из ресурсов проекта
+            // Вместо "picture" укажите точное имя, которое у вас в окне ресурсов
+            return ShoesProject.Properties.Resources.picture;
         }
+
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
