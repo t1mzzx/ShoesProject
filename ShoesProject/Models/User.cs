@@ -23,5 +23,6 @@ namespace ShoesProject
 
         public virtual Role Role { get; set; }
         public virtual ICollection<Order> Order { get; set; }
+        public string FullName => $"{LastName} {FirstName} {MiddleName}";
     }
 }
