@@ -22,9 +22,9 @@ namespace ShoesProject
         public int Code { get; set; }
         public int IdStatuses { get; set; }
 
-        public virtual DeliveryPoint IdDeliveryPointNavigation { get; set; }
-        public virtual Statuse IdStatusesNavigation { get; set; }
-        public virtual User IdUserNavigation { get; set; }
+        public virtual DeliveryPoint DeliveryPoint { get; set; }
+        public virtual Statuse Statuse { get; set; }
+        public virtual User User { get; set; }
         public virtual ICollection<ProductsOrder> ProductsOrder { get; set; }
     }
 }

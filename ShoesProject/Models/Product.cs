@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 // Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
 // If you have enabled NRTs for your project, then un-comment the following line:
@@ -27,11 +26,11 @@ namespace ShoesProject
         public string Description { get; set; }
         public string PhotoUrl { get; set; }
 
-        public virtual Categorie IdCategoryNavigation { get; set; }
-        public virtual Manufacturer IdManufacturerNavigation { get; set; }
-        public virtual Measure IdMeasureNavigation { get; set; }
-        public virtual Supplier IdSupplierNavigation { get; set; }
-        public virtual ProductType IdTypeNavigation { get; set; }
+        public virtual Categorie Categorie { get; set; }
+        public virtual Manufacturer Manufacturer { get; set; }
+        public virtual Measure Measure { get; set; }
+        public virtual Supplier Supplier { get; set; }
+        public virtual ProductType ProductType { get; set; }
         public virtual ICollection<ProductsOrder> ProductsOrder { get; set; }
     }
 }

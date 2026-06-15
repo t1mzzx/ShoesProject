@@ -1,6 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
+﻿using Microsoft.EntityFrameworkCore;
 
 // Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
 // If you have enabled NRTs for your project, then un-comment the following line:
@@ -119,17 +117,17 @@ namespace ShoesProject
                     .HasColumnName("order_date")
                     .HasColumnType("date");
 
-                entity.HasOne(d => d.IdDeliveryPointNavigation)
+                entity.HasOne(d => d.DeliveryPoint)
                     .WithMany(p => p.Order)
                     .HasForeignKey(d => d.IdDeliveryPoint)
                     .HasConstraintName("orders_id_delivery_point_fkey");
 
-                entity.HasOne(d => d.IdStatusesNavigation)
+                entity.HasOne(d => d.Statuse)
                     .WithMany(p => p.Order)
                     .HasForeignKey(d => d.IdStatuses)
                     .HasConstraintName("orders_id_statuses_fkey");
 
-                entity.HasOne(d => d.IdUserNavigation)
+                entity.HasOne(d => d.User)
                     .WithMany(p => p.Order)
                     .HasForeignKey(d => d.IdUser)
                     .HasConstraintName("orders_id_user_fkey");
@@ -171,27 +169,27 @@ namespace ShoesProject
                     .HasColumnName("price")
                     .HasColumnType("money");
 
-                entity.HasOne(d => d.IdCategoryNavigation)
+                entity.HasOne(d => d.Categorie)
                     .WithMany(p => p.Product)
                     .HasForeignKey(d => d.IdCategory)
                     .HasConstraintName("products_id_category_fkey");
 
-                entity.HasOne(d => d.IdManufacturerNavigation)
+                entity.HasOne(d => d.Manufacturer)
                     .WithMany(p => p.Product)
                     .HasForeignKey(d => d.IdManufacturer)
                     .HasConstraintName("products_id_manufacturer_fkey");
 
-                entity.HasOne(d => d.IdMeasureNavigation)
+                entity.HasOne(d => d.Measure)
                     .WithMany(p => p.Product)
                     .HasForeignKey(d => d.IdMeasure)
                     .HasConstraintName("products_id_measure_fkey");
 
-                entity.HasOne(d => d.IdSupplierNavigation)
+                entity.HasOne(d => d.Supplier)
                     .WithMany(p => p.Product)
                     .HasForeignKey(d => d.IdSupplier)
                     .HasConstraintName("products_id_supplier_fkey");
 
-                entity.HasOne(d => d.IdTypeNavigation)
+                entity.HasOne(d => d.ProductType)
                     .WithMany(p => p.Product)
                     .HasForeignKey(d => d.IdType)
                     .HasConstraintName("products_id_type_fkey");
@@ -224,12 +222,12 @@ namespace ShoesProject
 
                 entity.Property(e => e.Quantity).HasColumnName("quantity");
 
-                entity.HasOne(d => d.IdOrderNavigation)
+                entity.HasOne(d => d.Order)
                     .WithMany(p => p.ProductsOrder)
                     .HasForeignKey(d => d.IdOrder)
                     .HasConstraintName("products_orders_id_order_fkey");
 
-                entity.HasOne(d => d.IdProductNavigation)
+                entity.HasOne(d => d.Product)
                     .WithMany(p => p.ProductsOrder)
                     .HasForeignKey(d => d.IdProduct)
                     .HasConstraintName("products_orders_id_product_fkey");
@@ -304,7 +302,7 @@ namespace ShoesProject
                     .IsRequired()
                     .HasColumnName("pass");
 
-                entity.HasOne(d => d.IdRoleNavigation)
+                entity.HasOne(d => d.Role)
                     .WithMany(p => p.User)
                     .HasForeignKey(d => d.IdRole)
                     .HasConstraintName("users_id_role_fkey");
