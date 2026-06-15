@@ -131,14 +131,11 @@ namespace ShoesProject
 
         private Image LoadProductImage(string photoUrl)
         {
-            // Если в БД указан путь, и этот файл реально существует на диске
             if (!string.IsNullOrEmpty(photoUrl) && System.IO.File.Exists(photoUrl))
             {
                 return Image.FromFile(photoUrl);
             }
 
-            // ИСПРАВЛЕНИЕ: Возвращаем добавленную картинку из ресурсов проекта
-            // Вместо "picture" укажите точное имя, которое у вас в окне ресурсов
             return ShoesProject.Properties.Resources.picture;
         }
 
@@ -153,5 +150,27 @@ namespace ShoesProject
         {
             base.OnFormClosing(e);
         }
+
+        private void btnGoToOrders_Click(object sender, EventArgs e)
+        {
+            if (IsGuest || CurrentUser == null)
+            {
+                MessageBox.Show("Просмотр заказов недоступен для гостей. Пожалуйста, авторизуйтесь.",
+                                "Доступ ограничен",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return;
+            }
+
+            this.Hide();
+
+            using (var formOrders = new FormOrders(CurrentUser, IsGuest))
+            {
+                formOrders.ShowDialog();
+            }
+
+            this.Show();
+        }
+
     }
 }

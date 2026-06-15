@@ -1,6 +1,6 @@
 ﻿namespace ShoesProject
 {
-    partial class FormProducts
+    partial class FormOrders
     {
         /// <summary>
         /// Required designer variable.
@@ -28,20 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.dgvOrders = new System.Windows.Forms.DataGridView();
             this.panelTop = new System.Windows.Forms.Panel();
             this.lblUserName = new System.Windows.Forms.Label();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.dgvProducts = new System.Windows.Forms.DataGridView();
-            this.btnGoToOrders = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).BeginInit();
             this.panelTop.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             this.SuspendLayout();
+            // 
+            // dgvOrders
+            // 
+            this.dgvOrders.AllowUserToAddRows = false;
+            this.dgvOrders.AllowUserToDeleteRows = false;
+            this.dgvOrders.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvOrders.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvOrders.BackgroundColor = System.Drawing.Color.White;
+            this.dgvOrders.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOrders.ColumnHeadersVisible = false;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrders.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvOrders.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvOrders.Location = new System.Drawing.Point(0, 40);
+            this.dgvOrders.MultiSelect = false;
+            this.dgvOrders.Name = "dgvOrders";
+            this.dgvOrders.ReadOnly = true;
+            this.dgvOrders.RowHeadersVisible = false;
+            this.dgvOrders.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvOrders.Size = new System.Drawing.Size(984, 621);
+            this.dgvOrders.TabIndex = 3;
             // 
             // panelTop
             // 
             this.panelTop.BackColor = System.Drawing.Color.White;
-            this.panelTop.Controls.Add(this.btnGoToOrders);
             this.panelTop.Controls.Add(this.lblUserName);
             this.panelTop.Controls.Add(this.btnLogout);
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
@@ -50,7 +76,7 @@
             this.panelTop.Name = "panelTop";
             this.panelTop.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.panelTop.Size = new System.Drawing.Size(984, 40);
-            this.panelTop.TabIndex = 0;
+            this.panelTop.TabIndex = 2;
             // 
             // lblUserName
             // 
@@ -75,71 +101,31 @@
             this.btnLogout.TabIndex = 5;
             this.btnLogout.Text = "Выход";
             this.btnLogout.UseVisualStyleBackColor = false;
-            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click_1);
             // 
-            // dgvProducts
-            // 
-            this.dgvProducts.AllowUserToAddRows = false;
-            this.dgvProducts.AllowUserToDeleteRows = false;
-            this.dgvProducts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvProducts.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvProducts.BackgroundColor = System.Drawing.Color.White;
-            this.dgvProducts.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProducts.ColumnHeadersVisible = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProducts.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvProducts.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvProducts.Location = new System.Drawing.Point(0, 40);
-            this.dgvProducts.MultiSelect = false;
-            this.dgvProducts.Name = "dgvProducts";
-            this.dgvProducts.ReadOnly = true;
-            this.dgvProducts.RowHeadersVisible = false;
-            this.dgvProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProducts.Size = new System.Drawing.Size(984, 621);
-            this.dgvProducts.TabIndex = 1;
-            // 
-            // btnGoToOrders
-            // 
-            this.btnGoToOrders.Location = new System.Drawing.Point(413, 3);
-            this.btnGoToOrders.Name = "btnGoToOrders";
-            this.btnGoToOrders.Size = new System.Drawing.Size(167, 33);
-            this.btnGoToOrders.TabIndex = 7;
-            this.btnGoToOrders.Text = "Посмотреть заказы";
-            this.btnGoToOrders.UseVisualStyleBackColor = true;
-            this.btnGoToOrders.Click += new System.EventHandler(this.btnGoToOrders_Click);
-            // 
-            // FormProducts
+            // FormOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 661);
-            this.Controls.Add(this.dgvProducts);
+            this.Controls.Add(this.dgvOrders);
             this.Controls.Add(this.panelTop);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "FormProducts";
-            this.Text = "Список товаров";
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Name = "FormOrders";
+            this.Text = "FormOrders";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).EndInit();
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
             this.ResumeLayout(false);
 
         }
 
-
         #endregion
 
+        private System.Windows.Forms.DataGridView dgvOrders;
         private System.Windows.Forms.Panel panelTop;
-        private System.Windows.Forms.DataGridView dgvProducts;
         private System.Windows.Forms.Label lblUserName;
         private System.Windows.Forms.Button btnLogout;
-        private System.Windows.Forms.Button btnGoToOrders;
     }
 }
